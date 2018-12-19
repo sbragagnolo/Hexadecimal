@@ -6,7 +6,7 @@ Class {
 
 { #category : #'as yet unclassified' }
 Hexadecimal >> chopHeaders: aString [
-	^ (aString copyReplaceAll: '0x' with: '0') copyReplaceAll: '16r' with: ''
+	^ (aString copyReplaceAll: '0x' with: '') copyReplaceAll: '16r' with: ''
 ]
 
 { #category : #'as yet unclassified' }
@@ -23,6 +23,12 @@ Hexadecimal >> readHexadecimal: aStringOrNumber [
 		ifFalse: [ aStringOrNumber ].
 	self ensureIsNumber: returning.
 	^ returning
+]
+
+{ #category : #'as yet unclassified' }
+Hexadecimal >> readHexadecimalByteArray: aString [
+	^ ((self chopHeaders: aString)
+		pairsCollect: [ :char1 :char2 | self readHexadecimal: char1 asString , char2 asString ]) asByteArray
 ]
 
 { #category : #'as yet unclassified' }
