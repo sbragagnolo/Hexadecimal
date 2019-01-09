@@ -47,6 +47,11 @@ Hexadecimal >> writeHeadlessHexadecimal: aNumber [
 ]
 
 { #category : #'as yet unclassified' }
+Hexadecimal >> writeHeadlessHexadecimal: aNumber padding: aPadding [
+	^ self writeHexadecimal: aNumber headingWith: '' padding: aPadding
+]
+
+{ #category : #'as yet unclassified' }
 Hexadecimal >> writeHexadecimal: aNumber headingWith: aHeader padding: aPadding [
 	^ (aNumber hex asString copyReplaceAll: '16r' with: aHeader) asLowercase
 		padLeftTo: aPadding

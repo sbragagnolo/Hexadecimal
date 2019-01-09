@@ -14,3 +14,13 @@ Number >> write0xHexadecimal [
 Number >> write0xHexadecimal: aLength [
 	^ Hexadecimal new write0xHexadecimal: self padding: aLength
 ]
+
+{ #category : #'*Hexadecimal' }
+Number >> writeHeadlessHexadecimal [
+	^ Hexadecimal new writeHeadlessHexadecimal: self
+]
+
+{ #category : #'*Hexadecimal' }
+Number >> writeHeadlessHexadecimal: aPadding [
+	^ Hexadecimal new writeHeadlessHexadecimal: self padding: aPadding
+]
